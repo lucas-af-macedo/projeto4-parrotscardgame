@@ -1,0 +1,65 @@
+body{
+    background-color: #EEF9BF;
+    font-family: 'Roboto', sans-serif;
+}
+h1{
+    font-weight: 700;
+    font-size: 56px;
+    color:#75B79E;
+}
+.topo{
+    width: 100%;
+    display: flex;
+    margin-top: 40px;
+    justify-content: center;
+}
+.mesa{
+    width: 100%;
+    margin-top: 47px;
+    display: flex;
+    justify-content: center;
+}
+.tabulheiro{
+    max-width: 1060px;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+.carta{
+    width: 117px;
+    height: 146px;
+    background-color: blue;
+    border-radius: 5px;
+    margin: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.carta img{
+    width: 100px;
+}
+.esconder{
+    display: none;
+    background-color: green;
+}
+.t7{
+    max-width: 1060px;
+}
+.t6{
+    max-width: 1056px;
+}
+.t5{
+    max-width: 905px;
+}
+.t4{
+    max-width: 754px;
+}
+.t3{
+    max-width: 603px;
+}
+.t2{
+    max-width: 452px;
+}
+.t1{
+    max-width: 301px;
+}
