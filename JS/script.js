@@ -8,9 +8,9 @@ function quantidade_cartas(){
     let b=``
     for (i=0;i<cartas;i++){
         b=b+`<li>
-        <div class="carta carta${i+1}">
+        <div class="carta carta${i+1}" onclick="girar(this)">
             <div class="frente face"><img src="./images/front.png"/></div>
-            <div class="tras face"></div>
+            <div class="tras face"><img src="./images/unicornparrot.gif"/></div>
         </div>
         </li>`
     }
@@ -47,3 +47,8 @@ function coluna_cartas(){
     document.querySelector('.tabulheiro').classList.add(`t${a}`);
 }
 /*var viewport_width = window.innerWidth;*/
+
+function girar(caminho){
+    caminho.querySelector('.frente').classList.toggle('girar-frente');
+    caminho.querySelector('.tras').classList.toggle('girar-tras');
+}

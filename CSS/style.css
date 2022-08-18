@@ -28,13 +28,36 @@ h1{
 .carta{
     width: 117px;
     height: 146px;
-    background-color: blue;
+    
     border-radius: 5px;
     margin: 17px;
+    position:relative;
+}
+.face{
+    width: 100%;
+    height: 100%;
+    background-color: blue;
+    border-radius: 10px;
     display: flex;
+    position:absolute;
     align-items: center;
     justify-content: center;
+    backface-visibility: hidden;
+    transition: all .5s;
+    transform-style: preserve-3d;
+
 }
+.tras{
+    transform: rotateY(180deg);
+}
+.girar-tras{
+    transform: rotateY(0deg);
+}
+.girar-frente{
+    transform: rotateY(-180deg);
+}
+
+
 .carta img{
     width: 100px;
 }
