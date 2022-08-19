@@ -2,8 +2,12 @@ let cartas;
 let dupla_virada=[];
 let parrots=['unicornparrot','bobrossparrot','explodyparrot','fiestaparrot','metalparrot','revertitparrot','tripletsparrot'];
 let lista=[];
-quantidade_cartas();
+let total_certas=0;
+let jogadas=0;
+let id=0;
+let tempo;
 function quantidade_cartas(){
+    parrots.sort(comparador);
     cartas=prompt('Digite a quantidade de cartas');
     while (cartas%2!==0||cartas<4||cartas>14){
         cartas=prompt('Digite a quantidade de cartas correta entre 4 e 14');
@@ -52,14 +56,25 @@ function coluna_cartas(){
 /*var viewport_width = window.innerWidth;*/
 
 function virar(caminho){
+    if(jogadas===0){
+        temporizador();
+    }
     if(caminho!==dupla_virada[0]){
-    if (dupla_virada.length<2&&!(caminho.classList.contains('acertou'))){
-        girar(caminho);
-        dupla_virada.push(caminho);
-        if (dupla_virada.length==2&&!acertou()){
-            setTimeout(() => {girar_2_cartas();}, 1000);
+        if (dupla_virada.length<2&&!(caminho.classList.contains('acertou'))){
+            girar(caminho);
+            jogadas++;
+            dupla_virada.push(caminho);
+            if (dupla_virada.length==2&&!acertou()){
+                setTimeout(girar_2_cartas, 1000);
+            }
+            if (total_certas==cartas){
+                clearInterval(id);
+                tempo=document.querySelector('.temporizador p').innerHTML.replace(/[^0-9]/g,'');
+                setTimeout(fim_de_jogo, 40);
+                
+            }
         }
-    }}
+    }
 }
 function acertou(){
     if (dupla_virada.length<2){
@@ -67,12 +82,11 @@ function acertou(){
     }
     else{
         for(i=0;i<parrots.length;i++){
-            console.log(parrots[i]);
             if(dupla_virada[0].classList.contains(parrots[i])&&dupla_virada[1].classList.contains(parrots[i])){
-                console.log(parrots[i]);
                 dupla_virada[0].classList.add('acertou');
                 dupla_virada[1].classList.add('acertou');
                 dupla_virada=[];
+                total_certas+=2;
                 return 1;
             }
         }
@@ -101,3 +115,31 @@ function embaralhar(){
 function comparador() { 
 	return Math.random() - 0.5; 
 }
+
+function temporizador(){
+    document.querySelector('.temporizador p').innerHTML='0 s';
+    id=setInterval(relogio,1000);
+}
+function relogio(){
+    let a=document.querySelector('.temporizador p');
+
+    let b=Number(a.innerHTML.replace(/[^0-9]/g,''))+1;
+    b=b+' s';
+    a.innerHTML=b;
+}
+function fim_de_jogo(){
+    alert(`Você ganhou em ${jogadas} jogadas e com ${tempo} segundos.`);
+    let jogar=prompt('Deseja jogar novamente sim ou não?');
+    if (jogar==='sim'){
+        comecar_jogo();
+    }
+}
+function comecar_jogo(){
+    document.querySelector('.temporizador p').innerHTML='0 s';
+    dupla_virada=[];
+    lista=[];
+    total_certas=0;
+    jogadas=0;
+    quantidade_cartas();
+}
+comecar_jogo();
