@@ -48,8 +48,10 @@ h1{
     backface-visibility: hidden;
     transition: all .5s;
     border: 1px solid #99CEA8;
-    /*transform-style: preserve-3d;*/
-
+    transform-style: preserve-3d;
+}
+.carta-certa{
+    background-color: aqua;
 }
 .tras{
     transform: rotateY(180deg);

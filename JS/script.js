@@ -6,6 +6,7 @@ let total_certas=0;
 let jogadas=0;
 let id=0;
 let tempo;
+let lista_ani=[];
 
 function quantidade_cartas(){
     parrots.sort(comparador);
@@ -97,6 +98,10 @@ function virar(caminho){
         }
     }
 }
+function ani_carta(){
+    lista_ani[0].querySelector('.tras').classList.toggle('carta-certa');
+    lista_ani[1].querySelector('.tras').classList.toggle('carta-certa');
+}
 
 function acertou(){
     if (dupla_virada.length<2){
@@ -105,6 +110,9 @@ function acertou(){
     else{
         for(i=0;i<parrots.length;i++){
             if(dupla_virada[0].classList.contains(parrots[i])&&dupla_virada[1].classList.contains(parrots[i])){
+                lista_ani=dupla_virada;
+                ani_carta();
+                setTimeout(ani_carta,500);
                 dupla_virada[0].classList.add('acertou');
                 dupla_virada[1].classList.add('acertou');
                 dupla_virada=[];
