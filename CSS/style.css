@@ -7,6 +7,8 @@ h1{
     font-size: 56px;
     color:#75B79E;
     text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 .topo{
     width: 100%;
@@ -69,8 +71,8 @@ h1{
 
 .temporizador{
     position: fixed;
-    top: 10px;
-    right: 10px;
+    top: 7px;
+    right: 7px;
     background-color: rgba(153, 204, 168, 0.8) ;
     width: auto;
     padding: 5px;
@@ -82,10 +84,18 @@ h1{
     border: 2px solid rgba(0, 128, 0, 0.8);
     z-index: 5;
     pointer-events: none;
-}
-.temporizador p{
+    transition: all .15s;
     font-weight: 500;
-    font-size: 24px;
+    font-size: 20px;
+    color: #EEF9BF;
+}
+.luz{
+    border: 2px solid white;
+}
+.letra{
+    color:cyan;
+}
+.corori{
     color: #EEF9BF;
 }
 .t7{
