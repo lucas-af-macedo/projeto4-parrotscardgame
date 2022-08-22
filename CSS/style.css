@@ -56,9 +56,11 @@ h1{
 .tras{
     transform: rotateY(180deg);
 }
+
 .girar-tras{
     transform: rotateY(0deg);
 }
+
 .girar-frente{
     transform: rotateY(-180deg);
 }

@@ -182,5 +182,4 @@ function comecar_jogo(){
     jogadas=0;
     quantidade_cartas();
 }
-
 comecar_jogo();
